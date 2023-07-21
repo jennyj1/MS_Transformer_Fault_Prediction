@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 
 
 # load data
-data  = pd.read_csv('ionosphere.csv')
+# data  = pd.read_csv('KNN_Code\ionosphere.csv')
+data  = pd.read_csv('KNN_Code\Consolidated_Actual_Fault_Data.csv')
 data  = data.values
 feat  = np.asarray(data[:, 0:-1])
 label = np.asarray(data[:, -1])
@@ -19,7 +20,7 @@ fold = {'xt':xtrain, 'yt':ytrain, 'xv':xtest, 'yv':ytest}
 
 # parameter
 k    = 5     # k-value in KNN
-N    = 10    # number of particles
+N    = 30    # number of particles
 T    = 100   # maximum number of iterations
 opts = {'k':k, 'fold':fold, 'N':N, 'T':T}
 

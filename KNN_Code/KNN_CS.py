@@ -8,20 +8,20 @@ import matplotlib.pyplot as plt
 
 
 # load data
-data  = pd.read_csv('ionosphere.csv')
+data  = pd.read_csv('KNN_Code\Consolidated_Actual_Fault_Data.csv')
 data  = data.values
 feat  = np.asarray(data[:, 0:-1])
 label = np.asarray(data[:, -1])
 
 # split data into train & validation (70 -- 30)
-xtrain, xtest, ytrain, ytest = train_test_split(feat, label, test_size=0.3, stratify=label)
+xtrain, xtest, ytrain, ytest = train_test_split(feat, label, test_size=0.30, stratify=label)
 fold = {'xt':xtrain, 'yt':ytrain, 'xv':xtest, 'yv':ytest}
 
 # parameter
 k    = 5     # k-value in KNN
-N    = 10    # number of particles
+N    = 30    # number of particles
 T    = 100   # maximum number of iterations
-Pa  = 0.25   # discovery rate
+Pa  = 0.20   # discovery rate
 opts = {'k':k, 'fold':fold, 'N':N, 'T':T, 'Pa':Pa}
 
 # perform feature selection
@@ -58,7 +58,7 @@ fig, ax = plt.subplots()
 ax.plot(x, curve, 'o-')
 ax.set_xlabel('Number of Iterations')
 ax.set_ylabel('Fitness')
-ax.set_title('PSO')
+ax.set_title('CS')
 ax.grid()
 plt.show()
 
